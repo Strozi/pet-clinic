@@ -45,6 +45,7 @@
 	</build>
     <scm>
         <developerConnection>smc:git:https://github.com/Strozi/pet-clinic.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
 </project>
