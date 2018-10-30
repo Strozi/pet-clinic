@@ -44,7 +44,7 @@
 		</plugins>
 	</build>
     <scm>
-        <developerConnection>smc:git:git@github.com:Strozi/pet-clinic.git</developerConnection>
+        <developerConnection>smc:git:https://github.com/Strozi/pet-clinic.git</developerConnection>
     </scm>
 
 </project>
