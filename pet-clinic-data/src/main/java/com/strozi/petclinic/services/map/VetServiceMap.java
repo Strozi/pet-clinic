@@ -1,11 +1,11 @@
 package com.strozi.petclinic.services.map;
 
 import com.strozi.petclinic.model.Vet;
-import com.strozi.petclinic.services.CrudService;
+import com.strozi.petclinic.services.VetService;
 
 import java.util.Set;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService{
     @Override
     public Set<Vet> findAll() {
         return super.findAll();
