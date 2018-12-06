@@ -1,10 +1,7 @@
 package com.strozi.petclinic.bootstrap;
 
 import com.strozi.petclinic.model.*;
-import com.strozi.petclinic.services.OwnerService;
-import com.strozi.petclinic.services.PetTypeService;
-import com.strozi.petclinic.services.SpecialityService;
-import com.strozi.petclinic.services.VetService;
+import com.strozi.petclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +14,15 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
 
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -89,6 +88,21 @@ public class DataLoader implements CommandLineRunner {
         owner2.getPets().add(tomPet);
 
         ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setDate(LocalDate.now());
+        catVisit.setPet(tomPet);
+        catVisit.setDescrition("Sneezy Kitty :)");
+
+        visitService.save(catVisit);
+
+        Visit dogVisit = new Visit();
+        dogVisit.setDate(LocalDate.now());
+        dogVisit.setPet(joshPet);
+        dogVisit.setDescrition("Injured doggy :(");
+
+        visitService.save(dogVisit);
+
         Vet vet1 = new Vet();
         vet1.setFirstName("Tobby");
         vet1.setLastName("Young");
